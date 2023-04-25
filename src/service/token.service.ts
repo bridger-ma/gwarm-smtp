@@ -43,9 +43,6 @@ export class TokenService {
 
   storeToken(sessionId: string, token: Token) {
     this.tokens.set(sessionId, token);
-    setTimeout(() => {
-      this.tokens.delete(sessionId);
-    }, token.expires_in * 1000);
   }
   getToken(sessionId: string): Token | undefined {
     return this.tokens.get(sessionId);
